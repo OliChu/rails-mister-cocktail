@@ -1,1 +1,7 @@
 // Specific CSS for your home-page
+
+.main {
+  height: calc(100vh - 140px);
+  background-image: 'background.jpg';
+  background-size: cover;
+}

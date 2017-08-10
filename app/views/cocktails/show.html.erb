@@ -1,0 +1,24 @@
+<div class="cocktail wrapper">
+  <h1><%= @cocktail.name %></h1>
+  <div class="infos">
+<!--     <p>Doses: <%= @cocktail.doses %></p>
+ -->
+  </div>
+</div>
+
+<div class="doses-wrapper">
+  <%= link_to 'Add Dose', new_cocktail_dose_path(@cocktail), class:'btn btn-primary' %>
+</div>
+
+<div class="dose wrapper">
+  <h1>Doses</h1>
+  <ul class="list-unstyled">
+    <% @cocktail.doses.each do |dose| %>
+    <li class="infos">
+      <p>"<%= dose.description %>"</p>
+      <p>"<%= dose.ingredient.name %>"</p>
+      <%= link_to 'Delete', dose_path(dose), method: :delete %>
+    </li>
+  <% end %>
+  </ul>
+</div>

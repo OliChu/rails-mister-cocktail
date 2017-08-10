@@ -1,0 +1,11 @@
+<div class="wrapper">
+  <h1>Cocktails List</h1>
+  <ul class="list-unstyled">
+    <% @cocktails.each do |cocktail| %>
+    <li class="infos text-big">
+      <%= link_to cocktail.name, cocktail_path(cocktail) %>
+    </li>
+    <% end %>
+  </ul>
+  <%= link_to 'New', new_cocktail_path, class: 'btn btn-primary' %>
+</div>

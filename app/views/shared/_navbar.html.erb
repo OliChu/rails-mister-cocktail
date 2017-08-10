@@ -1,0 +1,14 @@
+<div class="navbar-wagon">
+  <!-- Logo -->
+  <%= link_to cocktails_path, {class: "name"}  do %>
+    <%= image_tag 'logo.png', {class: 'navbar-wagon-brand'} %>
+  <% end %>
+
+  <%= link_to 'La Picole', cocktails_path, {class: "navbar-title"} %>
+
+  <!-- Right Navigation -->
+  <div class="navbar-wagon-right hidden-xs hidden-sm">
+    <%= link_to 'Add cocktail', new_cocktail_path, {class: "navbar-wagon-item navbar-wagon-link"} %>
+  </div>
+
+</div>
