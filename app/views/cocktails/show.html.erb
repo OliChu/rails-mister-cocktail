@@ -5,46 +5,49 @@
       <div class="wrapper">
         <div class="row">
           <h1><%= @cocktail.name %></h1>
-          <div class="col-sm-6">
+          <div class="col-sm-4">
             <div class="picture text-center">
               <%= cl_image_tag @cocktail.photo, height: 300, width: 300, crop: :fill %>
             </div>
           </div>
-          <div class="col-sm-6">
-            <h1>Ingredients</h1>
+          <div class="col-sm-4">
+            <h2>Ingredients</h2>
             <ul class="list-unstyled">
               <% @cocktail.doses.each do |dose| %>
               <li class="infos">
-                <p>"<%= dose.description %>"</p>
-                <p>"<%= dose.ingredient.name %>"</p>
-                <%= link_to 'Delete', dose_path(dose), method: :delete %>
+                <%= link_to dose_path(dose), method: :delete do %>
+                  <i class="fa fa-trash" aria-hidden="true"></i>
+                <% end %>
+                <p><strong><%= dose.ingredient.name %>: </strong></p>
+                <p><%= dose.description %> </p>
               </li>
             <% end %>
             </ul>
           </div>
-        </div>
-      </div>
 
-      <div class="row">
-        <div class="col-sm-12">
-          <div class="form-wrapper text-center">
-            <%= simple_form_for [@cocktail, @dose], html: { class: 'form-inline' } do |f| %>
-              <%= f.input :description, placeholder: "Dose description",label: false %>
-              <%= f.association :ingredient, placeholder: "Ingredient" ,label: false %>
-              <%= f.button :submit, class: "btn form-control btn-primary"%>
-            <% end %>
+          <div class="col-sm-4">
+            <div class="form-wrapper text-center">
+              <%= simple_form_for [@cocktail, @dose]  do |f| %>
+                <%= f.input :description, placeholder: "Dose description",label: false %>
+                <%= f.association :ingredient, placeholder: "Ingredient" ,label: false %>
+                <%= f.button :submit, class: "btn form-control btn-primary"%>
+              <% end %>
+            </div>
           </div>
+
+
         </div>
       </div>
+<!-- html: { class: 'form-inline' } -->
 
       <div class="wrapper">
         <div class="row">
-          <h1>Instructions</h1>
-          <ol>
-            <% @cocktail.instructions.split('. ').each do |line| %>
-              <li class="infos"><p>"<%= line %>"</p></li>
-            <% end %>
-          </ol>
+          <h1>Instructions</h2>
+            <ol>
+              <% @cocktail.instructions.split('. ').each do |line| %>
+                <li><p><strong><%= line %></strong></p></li>
+              <% end %>
+            </ol>
         </div>
       </div>
 

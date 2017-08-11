@@ -6,6 +6,11 @@
   border-radius: 4px;
   h1 {
     margin: 0;
+    margin-bottom: 30px;
+  }
+  h2 {
+    color: $picole-red;
+    text-align: center;
   }
 }
 
@@ -38,3 +43,10 @@
   margin-top: 20px;
 }
 
+.infos {
+  display: flex;
+  margin-left: 10px;
+  a {
+    margin-right: 5px;
+  }
+}
