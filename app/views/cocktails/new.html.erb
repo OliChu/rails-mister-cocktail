@@ -3,7 +3,8 @@
     <div class="col-sm-4 col-sm-offset-4">
       <div class="form-wrapper">
         <%= simple_form_for @cocktail do |f| %>
-          <%= f.input :name %>
+          <%= f.input :name, placeholder: 'Name', label: false%>
+          <%= f.input :instructions,placeholder: 'Instructions', label: false %>
           <%= f.input :photo %>
           <%= f.input :photo_cache, as: :hidden %>
           <%= f.button :submit, class: "btn form-control btn-blue"%>
