@@ -1,24 +1,44 @@
-<div class="cocktail wrapper">
-  <h1><%= @cocktail.name %></h1>
-  <div class="infos">
-<!--     <p>Doses: <%= @cocktail.doses %></p>
- -->
+<div class="container">
+  <div class="row">
+    <div class="col-sm-10 col-sm-offset-1">
+
+      <div class="cocktail wrapper">
+        <h1><%= @cocktail.name %></h1>
+        <div class="infos">
+        </div>
+      </div>
+
+<!--       <div class="doses wrapper">
+        <%= link_to 'Add Dose', new_cocktail_dose_path(@cocktail), class:'btn btn-primary' %>
+      </div> -->
+
+      <div class="row">
+        <div class="col-sm-8">
+          <div class="dose wrapper">
+            <h1>Doses</h1>
+            <ul class="list-unstyled">
+              <% @cocktail.doses.each do |dose| %>
+              <li class="infos">
+                <p>"<%= dose.description %>"</p>
+                <p>"<%= dose.ingredient.name %>"</p>
+                <%= link_to 'Delete', dose_path(dose), method: :delete %>
+              </li>
+            <% end %>
+            </ul>
+          </div>
+        </div>
+        <div class="col-sm-4">
+          <div class="form-wrapper">
+            <%= simple_form_for [@cocktail, @dose] do |f| %>
+              <%= f.input :description %>
+              <%= f.association :ingredient %>
+              <%= f.button :submit, class: "btn form-control btn-primary"%>
+            <% end %>
+          </div>
+        </div>
+      </div>
+
+
+    </div>
   </div>
-</div>
-
-<div class="doses-wrapper">
-  <%= link_to 'Add Dose', new_cocktail_dose_path(@cocktail), class:'btn btn-primary' %>
-</div>
-
-<div class="dose wrapper">
-  <h1>Doses</h1>
-  <ul class="list-unstyled">
-    <% @cocktail.doses.each do |dose| %>
-    <li class="infos">
-      <p>"<%= dose.description %>"</p>
-      <p>"<%= dose.ingredient.name %>"</p>
-      <%= link_to 'Delete', dose_path(dose), method: :delete %>
-    </li>
-  <% end %>
-  </ul>
 </div>

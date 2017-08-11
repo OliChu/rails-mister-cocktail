@@ -1,0 +1,28 @@
+.form-wrapper {
+  margin-top: 20px;
+  box-shadow: 0 1px 5px 0 rgba(0,0,0,0.07),0 1px 0 0 rgba(0,0,0,0.03);
+  background-color: white;
+  padding: 20px;
+  border-radius: 4px;
+}
+
+.btn-blue {
+  background-color: $picole-red;
+  color: white;
+  font-weight: bolder;
+  &:hover {
+    background-color: white;
+    color: $picole-red;
+  }
+}
+
+.text-blue {
+  color: $picole-red;
+}
+
+h1 {
+  color: $picole;
+  text-align: center;
+  font-family: 'Noto Sans', sans-serif;
+  font-weight: bolder;
+}

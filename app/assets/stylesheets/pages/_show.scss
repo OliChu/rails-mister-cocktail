@@ -1,0 +1,40 @@
+.wrapper {
+  margin-top: 20px;
+  box-shadow: 0 1px 5px 0 rgba(0,0,0,0.07),0 1px 0 0 rgba(0,0,0,0.03);
+  background-color: rgba(255,255,255,0.5);
+  padding: 20px;
+  border-radius: 4px;
+  h1 {
+    margin: 0;
+  }
+}
+
+.text {
+  margin-top: 30px;
+  list-style: none;
+  font-size: 30px;
+}
+
+.left {
+  border-left: 3px solid $picole-red;
+  border-bottom: 3px solid $picole-red;
+  padding-left: 20px;
+  a {
+    color: $picole-red;
+  }
+}
+
+.right {
+  border-right: 3px solid $picole-gray;
+  border-top: 3px solid $picole-gray;
+  padding-right: 20px;
+  text-align: right;
+  a {
+    color: $picole-gray;
+  }
+}
+
+.btn-wrapper {
+  margin-top: 20px;
+}
+

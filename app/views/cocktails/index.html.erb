@@ -1,11 +1,22 @@
-<div class="wrapper">
-  <h1>Cocktails List</h1>
-  <ul class="list-unstyled">
-    <% @cocktails.each do |cocktail| %>
-    <li class="infos text-big">
-      <%= link_to cocktail.name, cocktail_path(cocktail) %>
-    </li>
-    <% end %>
-  </ul>
-  <%= link_to 'New', new_cocktail_path, class: 'btn btn-primary' %>
+<div class="container">
+  <div class="row">
+    <div class="col-sm-10 col-sm-offset-1">
+      <div class="wrapper">
+        <h1>What to 'Picole' tonight?</h1>
+        <ul class="list-unstyled">
+          <% @cocktails.each_with_index do |cocktail, index| %>
+            <% if index % 2 == 0 %>
+              <li class="text left">
+                <%= link_to cocktail.name, cocktail_path(cocktail) %>
+              </li>
+              <% else %>
+              <li class="text right">
+                <%= link_to cocktail.name, cocktail_path(cocktail) %>
+              </li>
+            <% end %>
+          <% end %>
+        </ul>
+      </div>
+    </div>
+  </div>
 </div>

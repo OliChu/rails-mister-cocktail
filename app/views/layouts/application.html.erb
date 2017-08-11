@@ -13,13 +13,7 @@
   <body>
     <%= render 'shared/navbar' %>
     <div class="main">
-      <div class="container">
-        <div class="row">
-          <div class="col-sm-6 col-sm-offset-3">
-            <%= yield %>
-          </div>
-        </div>
-      </div>
+      <%= yield %>
     </div>
     <%= render 'shared/footer' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
