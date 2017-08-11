@@ -44,8 +44,10 @@
         <div class="row">
           <h1>Instructions</h2>
             <ol>
-              <% @cocktail.instructions.split('. ').each do |line| %>
-                <li><p><strong><%= line %></strong></p></li>
+              <% unless @cocktail.instructions.nil? %>
+                <% @cocktail.instructions.split('. ').each do |line| %>
+                  <li><p><strong><%= line %></strong></p></li>
+                <% end %>
               <% end %>
             </ol>
         </div>
