@@ -2,20 +2,16 @@
   <div class="row">
     <div class="col-sm-10 col-sm-offset-1">
 
-      <div class="cocktail wrapper">
-        <h1><%= @cocktail.name %></h1>
-        <div class="infos">
-        </div>
-      </div>
-
-<!--       <div class="doses wrapper">
-        <%= link_to 'Add Dose', new_cocktail_dose_path(@cocktail), class:'btn btn-primary' %>
-      </div> -->
-
-      <div class="row">
-        <div class="col-sm-8">
-          <div class="dose wrapper">
-            <h1>Doses</h1>
+      <div class="wrapper">
+        <div class="row">
+          <h1><%= @cocktail.name %></h1>
+          <div class="col-sm-6">
+            <div class="picture text-center">
+              <%= cl_image_tag @cocktail.photo, height: 300, width: 300, crop: :fill %>
+            </div>
+          </div>
+          <div class="col-sm-6">
+            <h1>Ingredients</h1>
             <ul class="list-unstyled">
               <% @cocktail.doses.each do |dose| %>
               <li class="infos">
@@ -27,17 +23,30 @@
             </ul>
           </div>
         </div>
-        <div class="col-sm-4">
-          <div class="form-wrapper">
-            <%= simple_form_for [@cocktail, @dose] do |f| %>
-              <%= f.input :description %>
-              <%= f.association :ingredient %>
+      </div>
+
+      <div class="row">
+        <div class="col-sm-12">
+          <div class="form-wrapper text-center">
+            <%= simple_form_for [@cocktail, @dose], html: { class: 'form-inline' } do |f| %>
+              <%= f.input :description, placeholder: "Dose description",label: false %>
+              <%= f.association :ingredient, placeholder: "Ingredient" ,label: false %>
               <%= f.button :submit, class: "btn form-control btn-primary"%>
             <% end %>
           </div>
         </div>
       </div>
 
+      <div class="wrapper">
+        <div class="row">
+          <h1>Instructions</h1>
+          <ol>
+            <% @cocktail.instructions.split('. ').each do |line| %>
+              <li class="infos"><p>"<%= line %>"</p></li>
+            <% end %>
+          </ol>
+        </div>
+      </div>
 
     </div>
   </div>
